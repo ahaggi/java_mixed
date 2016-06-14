@@ -1,0 +1,76 @@
+package no.hib.dat101;
+
+
+public class Logg {
+	
+	private Integer loggID;
+	private Spiller spiller;
+	private Spill spill;
+	private Integer  terning ;
+	private Rute fraRute;
+	private Rute tilRute;
+	private String handling;
+	
+	public Logg(Spiller spiller, Spill spill, Integer terning, Rute fraRute, Rute tilRute,
+			String handling) {
+		super();
+//		this.loggID = loggID; serial
+		this.spiller = spiller;
+		this.spill = spill;
+		this.terning = terning;
+		this.fraRute = fraRute;
+		this.tilRute = tilRute;
+		this.handling = handling;
+	}
+	public Logg() {
+		super();
+	}
+
+	
+	public Integer getloggID() {
+		return loggID;
+	}
+	public void setloggID(Integer loggID) {
+		this.loggID = loggID;
+	}
+	public Spiller getSpiller() {
+		return spiller;
+	}
+	public void setSpiller(Spiller spiller) {
+		this.spiller = spiller;
+	}
+	public Spill getSpill() {
+		return spill;
+	}
+	public void setSpill(Spill spill) {
+		this.spill = spill;
+	}
+	public Integer getTerning() {
+		return terning;
+	}
+	public void setTerning(Integer terning) {
+		this.terning = terning;
+	}
+	public Rute getFraRute() {
+		return fraRute;
+	}
+	public void setFraRute(Rute fraRute) {
+		this.fraRute = fraRute;
+	}
+	public Rute getTilRute() {
+		return tilRute;
+	}
+	public void setTilRute(Rute tilRute) {
+		this.tilRute = tilRute;
+	}
+	public String getHandling() {
+		return handling;
+	}
+	public void setHandling(String handling) {
+		this.handling = handling;
+	}
+
+	
+	
+	
+}

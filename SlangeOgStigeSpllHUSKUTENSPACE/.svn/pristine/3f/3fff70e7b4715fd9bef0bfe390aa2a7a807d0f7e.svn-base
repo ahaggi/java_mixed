@@ -1,0 +1,72 @@
+package no.hib.dat101;
+
+import java.util.*;
+
+
+
+public class Brett {
+	
+	private Integer brettID; 
+	private List<Rute> ruter=new ArrayList<Rute>();
+	private int AntallRuter = 100;
+	private Spill spill;
+
+       
+    public Brett() {
+		super();
+	}
+    
+    public Brett(Spill spill) {
+		super();
+		lagNyeRuter();
+		this.spill=spill;
+	}
+
+    private void lagNyeRuter(){
+
+    	for (int i = 1; i <=AntallRuter;  i++) {
+			Rute rute=new Rute(i, this);
+			ruter.add(rute);
+		}
+    }
+
+
+
+	public Rute finnRute(int Id){
+    	Rute rute=null;
+    	for (Rute r : ruter) {
+			if (r.getRuteId()==Id) {
+				return rute=r;
+			}
+		}
+    	return rute;
+    }
+	
+	
+	/*************************added******************************/
+
+	public void setDestinasjon(int ruteNDX, int destinasjonNDX){
+		Rute aktuellRute=finnRute(ruteNDX);
+		Rute foererTil=finnRute(destinasjonNDX);
+		aktuellRute.setDestinasjon(foererTil);
+		String beskrivelse=(destinasjonNDX>ruteNDX)?"Stige":"Slange";
+		aktuellRute.setType(beskrivelse);
+	}
+	/**************************************************************/
+
+
+	public List<Rute> getRuter() {
+		return ruter;
+	}
+
+	public void setRuter(List<Rute> ruter) {
+		this.ruter = ruter;
+	}
+
+	@Override
+	public String toString() {
+		return "Brett [ruter=" + ruter + "]";
+	}
+    
+    
+}

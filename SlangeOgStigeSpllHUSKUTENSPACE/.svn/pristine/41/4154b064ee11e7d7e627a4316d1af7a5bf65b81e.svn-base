@@ -1,0 +1,25 @@
+package main;
+
+import java.util.*;
+
+public class Spill {
+
+	private Terning terning;
+    private List<Spiller> spillere;
+    private Brett brett;
+
+    
+    
+    
+    
+    public Spiller finnSpiller(int spillerId){
+    	Spiller spiller=null;
+    	for (Spiller sp : spillere) {
+			if (sp.getSpillerId()==spillerId) {
+				return spiller=sp;
+			}
+		}
+    	return spiller;
+    }
+
+}

@@ -1,0 +1,53 @@
+package no.hib.dat101;
+
+public class Brikke {
+
+	private Integer brikkeID;
+	private Rute plass;
+	private Spill spillID;
+
+	public Brikke(Integer brikkeID, Rute plass, Spill spillID) {
+		super();
+		this.brikkeID = brikkeID;
+		this.plass = plass;
+		this.spillID = spillID;
+	}
+
+	public Brikke() {
+
+	}
+
+	public void flytt(Rute rute) {
+		plass = rute;
+	}
+
+	public Integer getBrikkeID() {
+		return brikkeID;
+	}
+
+	public void setBrikkeID(Integer brikkeID) {
+		this.brikkeID = brikkeID;
+	}
+
+	public Rute getPlass() {
+		return plass;
+	}
+
+	public void setPlass(Rute plass) {
+		this.plass = plass;
+	}
+
+	public Spill getSpillID() {
+		return spillID;
+	}
+
+	public void setSpillID(Spill spillID) {
+		this.spillID = spillID;
+	}
+
+	@Override
+	public String toString() {
+		return "Brikke [BrikkeID=" + brikkeID + ", plass=" + plass + "]";
+	}
+
+}

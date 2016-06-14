@@ -1,0 +1,93 @@
+package main;
+
+import java.util.*;
+
+public class Spill {
+
+	private Terning terning;
+    private List<Spiller> spillere = new ArrayList<Spiller>();
+    private Brett brett;
+    private List<Brikke> brikker = new ArrayList<Brikke>();
+    
+    public Spill() {
+    	
+    }
+    
+    public Spill(Terning terning, List<Spiller> spillere, Brett brett, List<Brikke> brikker) {
+		super();
+		this.terning = terning;
+		this.spillere = spillere;
+		this.brett = brett;
+		this.brikker = brikker;
+	}
+
+	public Spill(int antallSpillere) {
+    	Terning terning = new Terning();
+    	this.terning = terning;
+    	
+    	Brett brett = new Brett();
+    	this.brett = brett;
+    	
+		for (int i = 0; i < 4; i++) {
+    		Brikke brikke = new Brikke(i+1, brett.finnRute(1));
+    		brikker.add(brikke);
+    	}
+    	
+		for (int i = 0; i < antallSpillere; i++) {
+    		Spiller spiller = new Spiller(i+1, brett, brikker.get(i));
+    		spillere.add(spiller);
+    	}
+    }
+
+    public Spiller finnSpiller(int spillerId){
+    	Spiller spiller=null;
+    	for (Spiller sp : spillere) {
+			if (sp.getSpillerId()==spillerId) {
+				return spiller=sp;
+			}
+		}
+    	return spiller;
+    }
+
+	public Terning getTerning() {
+		return terning;
+	}
+
+	public void setTerning(Terning terning) {
+		this.terning = terning;
+	}
+
+	public List<Spiller> getSpillere() {
+		return spillere;
+	}
+
+	public void setSpillere(List<Spiller> spillere) {
+		this.spillere = spillere;
+	}
+
+	public Brett getBrett() {
+		return brett;
+	}
+
+	public void setBrett(Brett brett) {
+		this.brett = brett;
+	}
+
+	public List<Brikke> getBrikker() {
+		return brikker;
+	}
+
+	public void setBrikker(List<Brikke> brikker) {
+		this.brikker = brikker;
+	}
+
+	@Override
+	public String toString() {
+		return "Spill [terning=" + terning + ", spillere=" + spillere + ", brett=" + brett + ", brikker=" + brikker
+				+ "]";
+	}
+    
+	
+    
+
+}

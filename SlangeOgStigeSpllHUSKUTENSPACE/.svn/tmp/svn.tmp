@@ -1,0 +1,28 @@
+package main;
+
+import java.util.*;
+
+public class Spill {
+
+	private Terning terning;
+    private List<Spiller> spillere;
+    private Brett brett;
+    
+    public void initialiser(int antallSpillere) {
+    	for (int i = 0; i < antallSpillere; i++) {
+    		Spiller spiller = new Spiller(i+1);
+    		spillere.add(spiller);
+    	}
+    }
+
+    public Spiller finnSpiller(int spillerId){
+    	Spiller spiller=null;
+    	for (Spiller sp : spillere) {
+			if (sp.getSpillerId()==spillerId) {
+				return spiller=sp;
+			}
+		}
+    	return spiller;
+    }
+
+}

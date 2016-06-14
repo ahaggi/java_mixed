@@ -1,0 +1,10 @@
+package main;
+
+
+public class Brikke {
+
+    private Rute plass; 
+    
+    
+
+}

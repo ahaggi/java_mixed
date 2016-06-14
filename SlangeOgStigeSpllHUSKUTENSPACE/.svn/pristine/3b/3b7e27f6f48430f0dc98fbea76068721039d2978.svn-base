@@ -1,0 +1,33 @@
+package main;
+
+public class Slange {
+
+    private Rute hode; 
+    private Rute hale;
+    
+	public Slange(Rute hode, Rute hale) {
+		super();
+		this.hode = hode;
+		this.hale = hale;
+	}
+	
+	public Slange() {
+		
+	}
+
+	
+	public Rute getHode() {
+		return hode;
+	}
+	public void setHode(Rute hode) {
+		this.hode = hode;
+	}
+	public Rute getHale() {
+		return hale;
+	}
+	public void setHale(Rute hale) {
+		this.hale = hale;
+	} 
+
+    
+}

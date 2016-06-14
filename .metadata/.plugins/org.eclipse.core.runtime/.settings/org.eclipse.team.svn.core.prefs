@@ -1,0 +1,4 @@
+eclipse.preferences.version=1
+externalMigrateFromAuthorizationDatabase/isMigrated=true
+migrateFromAuthorizationDatabase/isMigrated=true
+repositories/30c32154472b00161cdc8002d873648e=30c32154472b00161cdc8002d873648e;http\://data1.hib.no\:8000/svn/v16_dat101_g10/SlangeOgStigeSpll;http\://data1.hib.no\:8000/svn/v16_dat101_g10/SlangeOgStigeSpll;branches;tags;trunk;true;086ac99f-7e6d-4040-bbdd-9ee98f8254c5;http\://data1.hib.no\:8000/svn/v16_dat101_g10;;false;;;0

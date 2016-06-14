@@ -1,0 +1,39 @@
+package no.hib.dat101;
+
+import java.util.*;
+
+public class Terning {
+
+	private static final Random RAND = new Random();
+    private Integer verdi;
+    
+    public Terning() {
+    	
+    }
+
+    public Terning(Integer verdi) {
+		super();
+		this.verdi = verdi;
+	}
+
+	public final void trill() {
+        verdi = RAND.nextInt(6) + 1;
+    }
+
+	public Integer getVerdi() {
+		return verdi;
+	}
+
+	public void setVerdi(Integer verdi) {
+		this.verdi = verdi;
+	}
+
+	@Override
+	public String toString() {
+		return "Terning [verdi=" + verdi + "]";
+	}
+
+	
+    
+
+}

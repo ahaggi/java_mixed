@@ -1,0 +1,17 @@
+package main;
+
+public class Rute {
+
+    private Integer navn;
+
+    
+	public Integer getNavn() {
+		return navn;
+	}
+
+	public void setNavn(Integer navn) {
+		this.navn = navn;
+	}
+
+    
+}

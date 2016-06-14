@@ -1,0 +1,19 @@
+package main;
+
+public class Stige {
+    private Rute topp; 
+    private Rute bunn; 
+    
+    public Stige() {
+    	
+    }
+
+	public Stige(Rute topp, Rute bunn) {
+		super();
+		this.topp = topp;
+		this.bunn = bunn;
+	}
+    
+    
+
+}

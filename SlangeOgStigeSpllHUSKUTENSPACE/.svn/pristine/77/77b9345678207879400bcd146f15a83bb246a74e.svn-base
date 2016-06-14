@@ -1,0 +1,17 @@
+package main;
+
+import java.util.Scanner;
+
+public class Klient {
+
+	public static void main(String[] args) {
+		
+		Scanner tastatur = new Scanner(System.in);
+		Spill spill = new Spill(tastatur.nextInt());
+		tastatur.nextLine();
+		tastatur.close();
+		
+		System.out.println(spill.toString());
+	}
+
+}

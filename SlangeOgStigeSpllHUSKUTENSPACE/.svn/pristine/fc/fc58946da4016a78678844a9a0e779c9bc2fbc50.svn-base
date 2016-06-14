@@ -1,0 +1,90 @@
+package no.hib.dat101;
+
+import javax.persistence.*;
+
+@Entity
+@Table(schema="slangeogstige")
+public class Spiller {
+	@Id
+	private Integer spillerID;
+
+	@OneToOne
+	@JoinColumn(name = "brett", referencedColumnName = "brettID", insertable = true, updatable = true)
+	private Brett brett;
+
+	@OneToOne
+	@JoinColumn(name = "brikke", referencedColumnName = "brikkeID", insertable = true, updatable = true)
+	private Brikke brikke;
+
+	@OneToOne
+	@JoinColumn(name = "spill", referencedColumnName = "spillID", insertable = true, updatable = true)
+	private Spill spill;
+	
+	private Boolean punish =false;
+
+	public Spiller() {
+
+	}
+
+	public Spiller(Integer spillerID,  Brikke brikke, Spill spill) {
+		super();
+		this.spillerID = spillerID;
+		this.brett = spill.getBrett();
+		this.brikke = brikke;
+		this.spill=spill;
+	}
+
+	public void flytt(Rute nyRute) {
+
+		brikke.flytt(nyRute);
+
+	}
+
+	public Integer getSpillerID() {
+		return spillerID;
+	}
+
+	public void setSpillerID(Integer spillerID) {
+		this.spillerID = spillerID;
+	}
+
+	public Spill getSpill() {
+		return spill;
+	}
+
+	public void setSpill(Spill spill) {
+		this.spill = spill;
+	}
+
+
+	public Brett getBrett() {
+		return brett;
+	}
+
+	public void setBrett(Brett brett) {
+		this.brett = brett;
+	}
+
+	public Brikke getBrikke() {
+		return brikke;
+	}
+
+	public void setBrikke(Brikke brikke) {
+		this.brikke = brikke;
+	}
+
+	public Boolean getPunish() {
+		return punish;
+	}
+
+	public void setPunish(Boolean punish) {
+		this.punish = punish;
+	}
+
+	@Override
+	public String toString() {
+		return "Spiller [spillerId=" + spillerID + ", brett=" + brett + ", brikke=" + brikke + "]";
+	}
+
+
+}

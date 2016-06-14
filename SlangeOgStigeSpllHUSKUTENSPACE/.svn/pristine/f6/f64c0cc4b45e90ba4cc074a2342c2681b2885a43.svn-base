@@ -1,0 +1,8 @@
+package main;
+
+public class Slange {
+
+    private Rute hode; 
+    private Rute hale; 
+
+}
