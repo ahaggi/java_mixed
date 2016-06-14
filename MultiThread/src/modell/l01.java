@@ -10,7 +10,7 @@ public class l01 {
 //        Thread.sleep(4000);
         
 		for (int i = 0; i < 10; i++) {
-			System.out.println("main thread*******************************************");
+			System.out.println("main thread00000000000000000000000000000000000000");
 			
 		}
 		
