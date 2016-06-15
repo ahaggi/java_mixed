@@ -1,0 +1,10 @@
+231 art1 aac 2007 4 aaaaa
+222 art2 bbb 2008 3 bbbbb
+333 art3 acbc 2009 2 ccccc
+444 art4 dab 2010 1 ddddd
+555 art5 eeae 2011 0 eeeee
+666 art6 fffa 2012 3 fffff
+777 art7 ggbg 2013 2 ggggg
+888 art8 hach 2014 1 hhhhh
+999 art9 idai 2015 4 iiiii
+0 nnn nbd 0 3 nnnnnnnn
