@@ -21,13 +21,13 @@ public class L01_DefiningThreadOgStartTips {
 /**It is never legal to start a thread more than once.
  *  In particular, a thread may not be restarted once it has completed execution.*/
 
-		for (int i = 0; i < 10; i++) {
-			System.out.println("main thread00000000000000000000000000000000000000");			
-		}
+			for (int i = 0; i < 10; i++) {
+				System.out.println("main thread00000000000000000000000000000000000000");			
+			}
 	}
 }
-
-class Mythread extends Thread {
+/** extends Thread is not recommended because we lose inheritance benefits*/
+class Mythread extends Thread { //OBS extends
 	@Override
 	public void run(){
 		for (int i = 0; i < 10; i++) {
