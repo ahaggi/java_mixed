@@ -1,6 +1,6 @@
 package modell;
 
-public class L02_brukAvRunnable  {
+public class L06_TRaads_Prioritet  {
 
 	public static void main(String[] args) {
 		

@@ -4,7 +4,7 @@ public class L01_DefiningThreadOgStartTips {
 
 	public static void main(String[] args) throws InterruptedException {
 
-		Mythread t1 = new Mythread();
+		Mythread_extends_Thread t1 = new Mythread_extends_Thread();
 		t1.start();
 /** .start():
  * 1-registerer den nye thread på schedule
@@ -22,16 +22,7 @@ public class L01_DefiningThreadOgStartTips {
  *  In particular, a thread may not be restarted once it has completed execution.*/
 
 			for (int i = 0; i < 10; i++) {
-				System.out.println("main thread00000000000000000000000000000000000000");			
+				System.out.println("This line executed by: "+Thread.currentThread().getName());			
 			}
-	}
-}
-/** extends Thread is not recommended because we lose inheritance benefits*/
-class Mythread extends Thread { //OBS extends
-	@Override
-	public void run(){
-		for (int i = 0; i < 10; i++) {
-			System.out.println("child thread--------------------------------------");
-		}
 	}
 }
