@@ -3,7 +3,9 @@ package modell;
 public class L01_DefiningThreadOgStartTips {
 
 	public static void main(String[] args) throws InterruptedException {
-
+		
+		Thread.currentThread().setPriority(7);
+		
 		Mythread_extends_Thread t1 = new Mythread_extends_Thread();
 		t1.start();
 /** .start():

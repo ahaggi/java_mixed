@@ -6,7 +6,7 @@ public class Mythread_extends_Thread extends Thread { //OBS extends
 		Thread.currentThread().setName("child thread");
 
 		for (int i = 0; i < 10; i++) {
-			System.out.println("This line executed by: "+Thread.currentThread().getName()+"--------------------------------------");
+			System.out.println("This line executed by: "+Thread.currentThread().getName()+" , priority is "+Thread.currentThread().getPriority());
 		}
 	}
 }

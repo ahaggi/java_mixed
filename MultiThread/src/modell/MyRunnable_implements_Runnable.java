@@ -8,8 +8,9 @@ package modell;
 		@Override
 		public void run(){
 			Thread.currentThread().setName("child thread");
+			
 			for (int i = 0; i < 10; i++) {
-				System.out.println("This line executed by: "+Thread.currentThread().getName()+"--------------------------------------");
+				System.out.println("This line executed by: "+Thread.currentThread().getName()+" , priority is "+Thread.currentThread().getPriority());
 			}
 		}
 	}
