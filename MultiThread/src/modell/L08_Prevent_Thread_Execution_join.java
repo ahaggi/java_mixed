@@ -16,7 +16,7 @@ public class L08_Prevent_Thread_Execution_join{
 	
 	public static void main(String[] args) throws Exception{
 		
-		 Thread t = new Thread(new JoinDemo());
+	 Thread t = new Thread(new JoinDemo());
 		   // this will call run() function
 		   t.start();
 		   // waits for this thread to die
