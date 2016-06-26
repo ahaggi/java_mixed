@@ -8,7 +8,7 @@ package modell;
  OBS 3-In its lifetime if the target Thread never entered into sleeping or waiting state then there is no impact of interrupt call simply interrupt call will be wasted.
 */
 
-public class L10_Prevent_Thread_Execution_Interruption{
+public class L10_Interruption{
 
 		// If we are commenting line 1 then main Thread won't interrupt child Thread
 		// and hence child Thread will be continued until its completion.

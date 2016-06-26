@@ -55,7 +55,7 @@ class ThreadDemo implements Runnable {
 	}
 
 } 
-public class L11_Prevent_Thread_Execution_Interrupting{
+public class L11_synchronization_Non_Static_Methods{
 
 	public static void main(String[] args) throws Exception{
 		

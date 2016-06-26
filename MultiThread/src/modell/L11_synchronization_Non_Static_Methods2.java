@@ -9,7 +9,12 @@ package modell;
 */
 
 
-public class L11_Prevent_Thread_Execution_Interrupting2{
+
+//public void check avalibility() read opration
+//public void book bookTicket() update operation
+
+
+public class L11_synchronization_Non_Static_Methods2{
 
 	public static void main(String[] args) throws Exception{
 		
