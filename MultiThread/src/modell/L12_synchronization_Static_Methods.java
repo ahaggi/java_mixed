@@ -13,7 +13,11 @@ package modell;
     5-Class level lock and object lock both are different and there is no relationship between these two.
     
  */
+/*Obs
+ * Hvis en traad har klass level lock(static syn metoder), blir ikke andre traad forhindret til å utfoere
+ * andre syn metoder(ikke static) på det samme objektet
 
+*/
 
 
 class Display2{
