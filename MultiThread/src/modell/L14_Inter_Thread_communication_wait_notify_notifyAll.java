@@ -50,7 +50,8 @@ public class L14_Inter_Thread_communication_wait_notify_notifyAll{
 		
 		synchronized(wt){ //Hvis vi bruker wait uten for sych , vil vi få IllegalMonitorStateException
 			System.out.println("main Thread calling wait() method");//step-1
-			wt.wait();
+			if (t.isAlive())//OBS vi må bruke if for å unngå deadlock (notify i andre trad er utført før wait i denne traad) 
+				wt.wait();
 			System.out.println("main Thread got notification call");//step-4
 			System.out.println("Total is: "+wt.total);
 		}
