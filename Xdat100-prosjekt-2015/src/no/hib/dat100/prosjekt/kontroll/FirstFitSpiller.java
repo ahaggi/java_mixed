@@ -54,18 +54,18 @@ public class FirstFitSpiller extends Spiller {
 		for (Kort k : lovlige) {
 			lovligeFarge[k.getFarge().ordinal()]++;
 		}
-		
-		for (int i = 0; i < lovligeFarge.length; i++) {
-		if (flest <handFarge[i]&&lovligeFarge[i]>0) {
-			flest=handFarge[i];
-			flestFargeHand=i;
-				
-		}
-	}
 
-		
-		
-		Kort spill = null;
+		for (int i = 0; i < lovligeFarge.length; i++) {
+			if (flest <handFarge[i]&&lovligeFarge[i]>0) {
+				flest=handFarge[i];
+				flestFargeHand=i;
+
+			}
+		}
+
+
+
+		Kort velget_Kort = null;
 		ArrayList<Kort> spillFra = new ArrayList<Kort>();
 
 		if (!lovlige.isEmpty()) {
@@ -74,14 +74,14 @@ public class FirstFitSpiller extends Spiller {
 			}
 		} else if (!attere.isEmpty()) {
 			for (Kort k : attere) {spillFra.add(k);}
-		
+
 		}
-		
+
 		Handling tur = null;
 		if (!spillFra.isEmpty()) {
-			spill = spillFra.get(0);
-			System.out.println("Firstfit : " + spill);
-			tur = new Handling(HandlingsType.LEGGNED, spill);
+			velget_Kort = spillFra.get(0);
+			System.out.println("Firstfit : Farge" + velget_Kort.getFarge() +" ,Verdi"+velget_Kort.getVerdi());
+			tur = new Handling(HandlingsType.LEGGNED, velget_Kort);
 			setAntallTrekk(0);
 		} else if (getAntallTrekk() < Regler.maksTrekk()) {
 			tur = new Handling(HandlingsType.TREKK, null);

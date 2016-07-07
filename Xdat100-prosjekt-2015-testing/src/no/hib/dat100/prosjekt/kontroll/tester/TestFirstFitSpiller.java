@@ -99,7 +99,8 @@ public class TestFirstFitSpiller {
 		spiller.leggTilKort(kort2);
 		spiller.trekker(kort3);
 		
-		Handling handling = spiller.nesteHandling(new Kort (Kortfarge.Ruter,7));
+		spiller.setAntallTrekk(3);
+		Handling handling = spiller.nesteHandling(new Kort (Kortfarge.Ruter,3));
 		
 		assertEquals(handling.getType(), HandlingsType.FORBI);
 	}

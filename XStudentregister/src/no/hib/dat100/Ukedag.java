@@ -1,7 +1,7 @@
 package no.hib.dat100;
 
 public enum Ukedag {
-	mandag, tirsdag, onsdag, torsdag, fredag, lÃ¸rdag, sÃ¸ndag;
+	mandag, tirsdag, onsdag, torsdag, fredag, lørdag, søndag;
 
 	public static Ukedag finnDag(int nr) {//ble lest fra fil register.txt
 		for (Ukedag dag : Ukedag.values()) {
