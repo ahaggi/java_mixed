@@ -7,7 +7,7 @@ import java.io.IOException;
 
 import javax.swing.JOptionPane;
 
-public class LeseFraFil {
+public class Klient {
 
 	private static String MAPPE_STR = "/Users/hib/git/dat100-2014/UnnTakOppgaverA/src/no/hib/dat100/lesinnfil/";
 

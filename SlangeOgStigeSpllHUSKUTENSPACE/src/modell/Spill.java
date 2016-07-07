@@ -35,15 +35,15 @@ public class Spill {
 
 	}
 
-	/** konstruktÃ¸r - med tidligere lagret brett og brikkere */
+	/** konstruktør - med tidligere lagret brett og brikkere */
 	public Spill(Brett brett, List<Brikke> brikker, int antallSpillere) {
 		super();
 		this.brett = brett;
 		this.brikker = brikker;
-		konstruktÃ¸rHjelp(antallSpillere);
+		konstruktørHjelp(antallSpillere);
 	}
 
-	/** konstruktÃ¸r for Ã¸ lage ny spillet */
+	/** konstruktør for ø lage ny spillet */
 	public Spill(int antallSpillere) {
 
 		this.brett = new Brett(this);
@@ -53,16 +53,16 @@ public class Spill {
 			brikker.add(brikke);
 		}
 
-		konstruktÃ¸rHjelp(antallSpillere);
+		konstruktørHjelp(antallSpillere);
 
 	}
 
 	/**
-	 * Felles for begge konstruktÃ¸rene.
+	 * Felles for begge konstruktørene.
 	 * 
 	 * @param antallSpillere
 	 */
-	private void konstruktÃ¸rHjelp(int antallSpillere) {
+	private void konstruktørHjelp(int antallSpillere) {
 		navn = "Slange og stige";
 
 		Terning terning = new Terning();
@@ -192,7 +192,7 @@ public class Spill {
 	}
 
 	/**
-	 * Sjekker om verdien pÃ¸ terningen er seks ogsÃ¸ flytt.
+	 * Sjekker om verdien på terningen er seks ogsø flytt.
 	 * 
 	 * @param spiller
 	 * @param terningVerdi
@@ -241,14 +241,14 @@ public class Spill {
 		Rute tilRute = spiller.getBrett().finnRute(tilRuteNDX);
 		Rute fraRute = spiller.getBrikke().getPlass();
 		String handling = "";
-		// fÃ¸rst flytt brikken
+		// først flytt brikken
 		if (tilRute != null) {
 			spiller.flytt(tilRute);
 			handling = ("Spilleren: " + spiller.getSpillerID() + " har flyttet til rute "
 					+ spiller.getBrikke().getPlass().getRuteId());
 
 		} else {
-			handling = ("Spilleren: " + spiller.getSpillerID() + " er stÃ¸ende pÃ¸ det samme plass");
+			handling = ("Spilleren: " + spiller.getSpillerID() + " er stående på det samme plass");
 			tilRute = spiller.getBrikke().getPlass(); // forandrer null til
 														// eksisterende plass
 		}
@@ -256,7 +256,7 @@ public class Spill {
 		Logg logg = new Logg(loggCount++, spiller.getSpillerID(), this.getSpillID(), terning, fraRute.getRuteId(),
 				tilRute.getRuteId(), handling);
 
-		// sjekker om nyrute fÃ¸rer til et annet rute
+		// sjekker om nyrute fører til et annet rute
 		Rute foererTil = tilRute.getDestinasjon();
 		if (!tilRute.equals(foererTil))
 			utfoerStigeEllerSlange(spiller, tilRute, foererTil);

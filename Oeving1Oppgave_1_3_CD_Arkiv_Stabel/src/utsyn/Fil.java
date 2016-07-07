@@ -56,11 +56,11 @@ public class Fil {
 					int nr = Integer.parseInt(felt[0]);
 					String artist = felt[1];
 					String tittel = felt[2];
-					int Ù‡r = Integer.parseInt(felt[3]);
+					int år = Integer.parseInt(felt[3]);
 					Sjanger sjanger = Sjanger.finnSjanger(Integer.valueOf(felt[4])); //Eventuelt lagret som heltall...MÙ‡ sÙ‡ konvertere til enum
 					String plselskap = felt[5];
 
-					CD cd = new CD(nr, artist, tittel, Ù‡r, sjanger, plselskap);
+					CD cd = new CD(nr, artist, tittel, år, sjanger, plselskap);
 					cda.leggTilCd(cd);    
 			//	}
 				post = innfil.readLine();
@@ -71,7 +71,7 @@ public class Fil {
 			innfil.close();
 
 		} 
-		catch (FileNotFoundException unntak) {//arver fra IOException mÙ‡ stÙ‡ fÙ‘rst
+		catch (FileNotFoundException unntak) {//arver fra IOException må stå fÙ‘rst
 			// hvis ikke vil unntaket for IOException skygge
 			System.out.println("Finner ikke filen " + filnavn);
 			System.exit(-1);
@@ -93,7 +93,7 @@ public class Fil {
 //			int nr = Integer.parseInt(testFelt[0]);
 //			String artist = testFelt[1];
 //			String tittel = testFelt[2];
-//			int Ù‡r = Integer.parseInt(testFelt[3]);
+//			int år = Integer.parseInt(testFelt[3]);
 //			Sjanger sjanger = Sjanger.finnSjanger(Integer.valueOf(testFelt[4])); 
 //			String plselskap = testFelt[5];
 //			riktig= true;
@@ -137,13 +137,13 @@ public class Fil {
 			utfil.close();
 
 		} 
-		catch (FileNotFoundException unntak) {//arver fra IOException mÙ‡ stÙ‡ fÙ‘rst
+		catch (FileNotFoundException unntak) {//arver fra IOException må stå fÙ‘rst
 			// hvis ikke vil unntaket for IOException skygge
 			System.out.println("Finner ikke filen " + filnavn);
 			System.exit(-1);
 		} 
 		catch (IOException e) {
-			System.out.println("Feil ved skriving pÙ‡ fil: " + e);
+			System.out.println("Feil ved skriving på fil: " + e);
 			System.exit(1);
 		}
 

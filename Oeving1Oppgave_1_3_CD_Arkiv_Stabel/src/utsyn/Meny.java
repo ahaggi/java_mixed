@@ -22,19 +22,19 @@ public class Meny {
 	
 	public void start() throws IOException{
 		
-		//Oppretter CDarkiv først og leser fra fil
-		int antallFør=cda.hentAntall();
+		//Oppretter CDarkiv f�rst og leser fra fil
+		int antallF�r=cda.hentAntall();
 		CDarkivADT cda=fil.lesFraFil("register.txt");
 		int antallEtter=cda.hentAntall();
-		int antallNye=antallEtter-antallFør;
+		int antallNye=antallEtter-antallF�r;
 		String melding2 ="Det er "+antallNye+" registrerte CD-er i arkivet";
 		skjerm.outln(melding2);
 		skjerm.outln(tekstgr.getLinje());
 		//
 
 		String meny = "\n" + "1 - legge inn nye CD \"les fra tastatur\". \n"
-				+ "2 - Søk etter CD-er med en spesiell delstreng i tittelen.\n"
-				+ "3 - Søk etter CD-er av en artist / en gruppe.\n"
+				+ "2 - S�k etter CD-er med en spesiell delstreng i tittelen.\n"
+				+ "3 - S�k etter CD-er av en artist / en gruppe.\n"
 				+ "4 - Skrive ut oversiktig tabell av registrerte CD-er sortert etter sjanger .\n"//TODO
 				+ "5 - Skrive ut opplysninger til alle registerert CD-er .\n"
 				+ "6 - lagre opplysninger til alle CD-er i filen.\n"
@@ -54,12 +54,12 @@ public class Meny {
 				cda.leggTilCd(cd);		
 				break;
 			case "2":
-				skjerm.outln("Tast inn tittelen på CD som du søker etter");
+				skjerm.outln("Tast inn tittelen på CD som du s�ker etter");
 				String delstreng3=tastValg.inLine();
 				tekstgr.skrivUtCdDelstrengITittel(cda, delstreng3);
 				break;
 			case "3":
-				skjerm.outln("Tast inn navn på artisten / gruppen som du søker etter");
+				skjerm.outln("Tast inn navn på artisten / gruppen som du s�ker etter");
 				String delstreng4=tastValg.inLine();
 				tekstgr.skrivUtCdArtist(cda, delstreng4);
 				break;
