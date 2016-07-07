@@ -9,7 +9,7 @@ public class test {
 	static int i = 0;
 
 	/************
-	 * det virker med jframe men kunne ikke finne ut hva som er feil her
+	 * det virker med jframe OG UNDER DEBUG PROSPECTIVE  men kunne ikke finne ut hva som er feil her
 	 **********/
 	public static void main(String[] args) {
 		System.out.println("1");
@@ -26,7 +26,6 @@ public class test {
 		timer.setRepeats(true);
 		timer.start();
 		System.out.println("3");
-
 	}
 
 	private static Action tull = new AbstractAction() {
