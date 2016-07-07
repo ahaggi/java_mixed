@@ -3,6 +3,7 @@
 
 ### Eclipse ###
 
+.gitignore~
 .metadata
 bin/
 tmp/
