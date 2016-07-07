@@ -4,7 +4,6 @@ public abstract class Ansatte {
 	String navn;
 	double timeLoen;
 	double bonusFaktor;
-	int x;
 
 	public Ansatte(String n) {
 		navn=n;
