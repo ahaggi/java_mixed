@@ -1,0 +1,46 @@
+package main;
+
+import java.util.*;
+
+
+public class Brett {
+
+    private List<Rute> ruter=new ArrayList<Rute>();
+
+       
+    public Brett(List<Rute> ruter) {
+		super();
+		this.ruter = ruter;
+	}
+
+    public Brett() {
+    	
+    }
+
+
+
+
+	public Rute finnRute(int rNavn){
+    	Rute rute=null;
+    	for (Rute r : ruter) {
+			if (r.getNavn()==rNavn) {
+				return rute=r;
+			}
+		}
+    	return rute;
+    }
+
+    
+    
+    
+    
+	public List<Rute> getRuter() {
+		return ruter;
+	}
+
+	public void setRuter(List<Rute> ruter) {
+		this.ruter = ruter;
+	}
+    
+    
+}

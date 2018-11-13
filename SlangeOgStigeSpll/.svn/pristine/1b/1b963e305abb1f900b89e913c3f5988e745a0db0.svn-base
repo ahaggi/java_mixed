@@ -1,0 +1,10 @@
+package main;
+
+
+public class Spiller {
+
+    private Integer spillerId;
+    private Brett brett;
+    private Brikke brikke;
+
+}

@@ -1,0 +1,12 @@
+package main;
+
+import java.util.*;
+
+public class Spill {
+
+	private Terning terning;
+    private List<Spiller> spillere;
+    private Brett brett;
+
+
+}

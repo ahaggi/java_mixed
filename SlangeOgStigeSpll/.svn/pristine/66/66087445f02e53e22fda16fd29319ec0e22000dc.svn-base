@@ -1,0 +1,11 @@
+package main;
+
+
+public class Brikke {
+	
+	private Integer BrikkeID;
+    private Rute plass; 
+    
+    
+
+}

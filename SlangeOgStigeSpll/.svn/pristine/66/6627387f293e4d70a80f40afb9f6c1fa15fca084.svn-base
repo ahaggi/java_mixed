@@ -1,0 +1,37 @@
+package main;
+
+
+public class Spiller {
+
+    private Integer spillerId;
+    private Brett brett;
+    private Brikke brikke;
+    
+	public Integer getSpillerId() {
+		return spillerId;
+	}
+	
+	public void setSpillerId(Integer spillerId) {
+		this.spillerId = spillerId;
+	}
+	
+	public Brett getBrett() {
+		return brett;
+	}
+	
+	public void setBrett(Brett brett) {
+		this.brett = brett;
+	}
+	
+	public Brikke getBrikke() {
+		return brikke;
+	}
+	
+	public void setBrikke(Brikke brikke) {
+		this.brikke = brikke;
+	}
+    
+    
+    
+
+}

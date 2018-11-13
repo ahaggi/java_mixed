@@ -1,0 +1,40 @@
+package main;
+
+
+public class Brikke {
+	
+	private Integer BrikkeID;
+    private Rute plass;
+
+
+	public Brikke(Integer brikkeID, Rute plass) {
+		super();
+		BrikkeID = brikkeID;
+		this.plass = plass;
+	}
+	
+	
+	public Brikke() {
+		
+	}
+
+	
+	
+	public Integer getBrikkeID() {
+		return BrikkeID;
+	}
+	public void setBrikkeID(Integer brikkeID) {
+		BrikkeID = brikkeID;
+	}
+	public Rute getPlass() {
+		return plass;
+	}
+	public void setPlass(Rute plass) {
+		this.plass = plass;
+	} 
+    
+    
+    
+    
+
+}

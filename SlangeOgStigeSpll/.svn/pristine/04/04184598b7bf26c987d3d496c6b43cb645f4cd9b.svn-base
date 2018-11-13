@@ -1,0 +1,246 @@
+package no.hib.dat101;
+
+import java.util.*;
+
+public class Spill {
+
+	private Integer spillID;
+	private String navn;
+	private Terning terning;
+	private List<Spiller> spillere = new ArrayList<Spiller>();
+	private Brett brett;
+	private List<Brikke> brikker = new ArrayList<Brikke>();
+
+	public Spill() {
+
+	}
+
+	/** konstruktør - med tidligere lagret brett og brikkere */
+	public Spill(Brett brett, List<Brikke> brikker, int antallSpillere) {
+		super();
+		this.brett = brett;
+		this.brikker = brikker;
+		konstruktørHjelp(antallSpillere);
+	}
+
+	/** konstruktør for å lage ny spillet */
+	public Spill(int antallSpillere) {
+
+		this.brett = new Brett(this);
+
+		for (int i = 0; i < 4; i++) {
+			Brikke brikke = new Brikke(i + 1, brett.finnRute(1), this);
+			brikker.add(brikke);
+		}
+
+		konstruktørHjelp(antallSpillere);
+
+	}
+
+	private void konstruktørHjelp(int antallSpillere) {
+		navn = "Slange og stige";
+
+		Terning terning = new Terning();
+		this.terning = terning;
+
+		for (Brikke brikke : brikker) {
+			brikke.setPlass(brett.finnRute(1));
+		}
+
+		for (int i = 0; i < antallSpillere; i++) {
+			Spiller spiller = new Spiller(i + 1, brikker.get(i), this);
+			spillere.add(spiller);
+		}
+	}
+
+	/*************************************************************/
+
+	public Integer trillTerning() {
+		terning.trill();
+		return terning.getVerdi();
+	}
+
+	public boolean harVunnet(Spiller spiller) {
+		return (spiller.getBrikke().getPlass().getRuteId() == 100);
+	}
+
+	public void startSpill() {
+		spillere = getSpillere();
+
+		Spiller vinner = null;
+		while (vinner == null) {
+			vinner = nyRunde();
+		}
+		System.out.println("Spilleren: " + vinner.getSpillerID() + " har vunnet");
+	}
+
+	public Spiller nyRunde() {
+		Spiller vinner = null;
+
+		for (Spiller spiller : spillere) {
+			nyTur(spiller);
+			if (harVunnet(spiller)) {
+				vinner = spiller;
+				return vinner;
+			}
+		}
+
+		return null;
+	}
+
+	public void nyTur(Spiller spiller) {
+		int terningVerdi = trillTerning();
+
+		if (spiller.getPunish()) {
+			if (terningVerdi == 6) {
+				sjekkOmSeks(spiller, terningVerdi);
+				spiller.setPunish(false);
+			}
+
+		} else {
+			sjekkOmSeks(spiller, terningVerdi);
+		}
+
+	}
+
+	private void sjekkOmSeks(Spiller spiller, int terningVerdi) {
+		int terningVerdi2 = 0;
+
+		flytt(spiller, terningVerdi);
+		if (terningVerdi == 6) {
+			terningVerdi2 = trillTerning();
+			flytt(spiller, terningVerdi2);
+		}
+		if (terningVerdi2 == 6) {
+			spiller.setPunish(true);
+			flyttTilEn(spiller);
+		}
+
+	}
+
+	/**
+	 * Flytter brikke til nå spiller til rute nr 1.
+	 */
+
+	private void flyttTilEn(Spiller spiller) {
+		String handling = ("Spilleren: " + spiller.getSpillerID() + " er flyttet til rute 1");
+		
+		// TODO
+		/***********************************************/
+		Logg logg = new Logg(spiller, this, 6, spiller.getBrikke().getPlass(), brett.finnRute(1), handling);
+		/***********************************************/
+		
+		spiller.getBrikke().setPlass(brett.finnRute(1));
+	}
+
+	public void flytt(Spiller spiller, int terning) {
+		int tilRuteNDX = spiller.getBrikke().getPlass().getRuteId() + terning;
+		Rute tilRute = spiller.getBrett().finnRute(tilRuteNDX);
+		Rute fraRute = spiller.getBrikke().getPlass();
+		String handling = "";
+		// først flytt brikken
+		if (tilRute != null) {
+			spiller.flytt(tilRute);
+			handling = ("Spilleren: " + spiller.getSpillerID() + " har flyttet til rute "
+					+ spiller.getBrikke().getPlass().getRuteId());
+
+		} else {
+			handling = ("Spilleren: " + spiller.getSpillerID() + " er stående på det samme plass");
+			tilRute = spiller.getBrikke().getPlass(); // forandrer null til
+														// eksisterende plass
+		}
+		// TODO
+		/***********************************************/
+		Logg logg = new Logg(spiller, this, terning, fraRute, tilRute, handling);
+		/***********************************************/
+
+		// sjekker om nyrute fører til et annet rute
+		Rute foererTil = tilRute.getDestinasjon();
+		if (!tilRute.equals(foererTil))
+			utfoerStigeEllerSlange(spiller, tilRute, foererTil);
+
+	}
+
+	public void utfoerStigeEllerSlange(Spiller spiller, Rute fraRute, Rute foererTil) {
+		String handling = "";
+		spiller.flytt(foererTil);
+
+		if (foererTil.getRuteId() > fraRute.getRuteId()) {
+			handling = ("Spilleren: " + spiller.getSpillerID() + " har klatrt opp stigen til rute "
+					+ foererTil.getRuteId());
+		} else {
+			handling = ("Spilleren: " + spiller.getSpillerID() + " har sklidd ned slangen til rute "
+					+ foererTil.getRuteId());
+		}
+
+		// TODO
+		/***********************************************/
+		Logg logg = new Logg(spiller, this, 0, fraRute, foererTil, handling);
+		/***********************************************/
+	}
+
+	public Spiller finnSpiller(int spillerID) {
+		Spiller spiller = null;
+		for (Spiller sp : spillere) {
+			if (sp.getSpillerID() == spillerID) {
+				return spiller = sp;
+			}
+		}
+		return spiller;
+	}
+
+	public Integer getSpillID() {
+		return spillID;
+	}
+
+	public void setSpillID(Integer spillID) {
+		this.spillID = spillID;
+	}
+
+	public String getNavn() {
+		return navn;
+	}
+
+	public void setNavn(String navn) {
+		this.navn = navn;
+	}
+
+	public Terning getTerning() {
+		return terning;
+	}
+
+	public void setTerning(Terning terning) {
+		this.terning = terning;
+	}
+
+	public List<Spiller> getSpillere() {
+		return spillere;
+	}
+
+	public void setSpillere(List<Spiller> spillere) {
+		this.spillere = spillere;
+	}
+
+	public Brett getBrett() {
+		return brett;
+	}
+
+	public void setBrett(Brett brett) {
+		this.brett = brett;
+	}
+
+	public List<Brikke> getBrikker() {
+		return brikker;
+	}
+
+	public void setBrikker(List<Brikke> brikker) {
+		this.brikker = brikker;
+	}
+
+	@Override
+	public String toString() {
+		return "Spill [spillID=" + spillID + ", navn=" + navn + ", terning=" + terning + ", spillere=" + spillere
+				+ ", brett=" + brett + ", brikker=" + brikker + "]";
+	}
+
+}

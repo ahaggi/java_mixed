@@ -1,0 +1,65 @@
+package main;
+
+import java.util.*;
+
+public class Spill {
+
+	private Terning terning;
+    private List<Spiller> spillere;
+    private Brett brett;
+    
+    public Spill() {
+    	
+    }
+    
+    public Spill(Terning terning, List<Spiller> spillere, Brett brett) {
+		super();
+		this.terning = terning;
+		this.spillere = spillere;
+		this.brett = brett;
+	}
+
+	public void initialiser(int antallSpillere) {
+    	for (int i = 0; i < antallSpillere; i++) {
+    		Spiller spiller = new Spiller();
+    		spillere.add(spiller);
+    	}
+    }
+
+    public Spiller finnSpiller(int spillerId){
+    	Spiller spiller=null;
+    	for (Spiller sp : spillere) {
+			if (sp.getSpillerId()==spillerId) {
+				return spiller=sp;
+			}
+		}
+    	return spiller;
+    }
+
+	public Terning getTerning() {
+		return terning;
+	}
+
+	public void setTerning(Terning terning) {
+		this.terning = terning;
+	}
+
+	public List<Spiller> getSpillere() {
+		return spillere;
+	}
+
+	public void setSpillere(List<Spiller> spillere) {
+		this.spillere = spillere;
+	}
+
+	public Brett getBrett() {
+		return brett;
+	}
+
+	public void setBrett(Brett brett) {
+		this.brett = brett;
+	}
+    
+    
+
+}

@@ -1,0 +1,99 @@
+package no.hib.dat101.utsyn;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import javax.persistence.RollbackException;
+
+import no.hib.dat101.Logg;
+import no.hib.dat101.Spill;
+
+/**
+ * @author Peter Boer, Daniel Moberg og Abdella Haji
+ *
+ */
+public class Database {
+
+	private Spill spill;
+
+	 EntityManagerFactory emf = Persistence.createEntityManagerFactory("eclipselink");
+	 EntityManager em = emf.createEntityManager();
+
+	public Database() {
+		spill = em.find(Spill.class, 1);
+	}
+
+	public Database(Spill spill) {
+		this.spill = spill;
+	}
+
+	public Database(String navn) {
+		spill = em.find(Spill.class, navn);
+	}
+	
+	/**
+	 * Henter Spill fra database.
+	 * 
+	 * @return Spill
+	 */
+	public Spill hentFraDb() {
+		return em.find(Spill.class, 1);
+	}
+
+	/**
+	 * Persister Spill til database.
+	 */
+	public void persist() {
+		try {
+			em.getTransaction().begin();
+			em.persist(spill);
+			em.getTransaction().commit();
+		} catch (RollbackException e) {
+			em.getTransaction().rollback();
+		}
+	}
+//	public static void persist_Logg(logg) {
+//		try {
+//			em.getTransaction().begin();
+//			em.persist(logg);
+//			em.getTransaction().commit();
+//		} catch (RollbackException e) {
+//			em.getTransaction().rollback();
+//		}
+//	}
+	/**
+	 * Lukker kobling til database.
+	 */
+	public void close() {
+		em.close();
+		emf.close();
+	}
+
+	/**
+	 * Henter Spill.
+	 * 
+	 * @return Spill
+	 */
+	public Spill getSpill() {
+		return spill;
+	}
+	
+
+	
+
+	/**
+	 * Setter Spill.
+	 * 
+	 * @param spill Spill
+	 */
+	public void setSpill(Spill spill) {
+		this.spill = spill;
+	}
+
+	@Override
+	public String toString() {
+		return "Database [spill=" + spill + "]";
+	}
+
+}
+

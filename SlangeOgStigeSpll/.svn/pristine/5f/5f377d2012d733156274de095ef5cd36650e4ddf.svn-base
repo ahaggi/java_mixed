@@ -1,0 +1,145 @@
+package main;
+
+import java.util.*;
+
+public class Spill {
+
+	private Integer spillID;
+	private String navn;
+	private Terning terning;
+	private List<Spiller> spillere = new ArrayList<Spiller>();
+	private Brett brett;
+	private List<Brikke> brikker = new ArrayList<Brikke>();
+
+	public Spill() {
+
+	}
+
+	public Spill(Brett brett, List<Brikke> brikker, int antallSpillere) {
+		super();
+		konstruktørHjelp(antallSpillere);
+		this.brett = brett;
+		this.brikker = brikker;
+	}
+
+	public Spill(int antallSpillere) {
+		konstruktørHjelp(antallSpillere);
+
+		Brett brett = new Brett();
+		this.brett = brett;
+
+		for (int i = 0; i < 4; i++) {
+			Brikke brikke = new Brikke(i + 1, brett.finnRute(1), this);
+			brikker.add(brikke);
+		}
+
+		setDestinasjon();
+	}
+
+	private void konstruktørHjelp(int antallSpillere) {
+		navn = "Slange og stige";
+
+		Terning terning = new Terning();
+		this.terning = terning;
+
+		for (Brikke brikke : brikker) {
+			brikke.setPlass(brett.finnRute(1));
+		}
+
+		for (int i = 0; i < antallSpillere; i++) {
+			Spiller spiller = new Spiller(i + 1, brikker.get(i), this);
+			spillere.add(spiller);
+		}
+	}
+
+	public Spiller finnSpiller(int spillerID) {
+		Spiller spiller = null;
+		for (Spiller sp : spillere) {
+			if (sp.getSpillerID() == spillerID) {
+				return spiller = sp;
+			}
+		}
+		return spiller;
+	}
+
+	public void setDestinasjon() {
+
+		/** stige */
+		brett.setDestinasjon(2, 38);
+		brett.setDestinasjon(4, 14);
+		brett.setDestinasjon(8, 31);
+		brett.setDestinasjon(21, 42);
+		brett.setDestinasjon(28, 84);
+		brett.setDestinasjon(36, 44);
+		brett.setDestinasjon(51, 67);
+		brett.setDestinasjon(71, 91);
+		brett.setDestinasjon(80, 100);
+
+		/** slange */
+		brett.setDestinasjon(98, 78);
+		brett.setDestinasjon(95, 75);
+		brett.setDestinasjon(92, 73);
+		brett.setDestinasjon(87, 24);
+		brett.setDestinasjon(64, 60);
+		brett.setDestinasjon(62, 18);
+		brett.setDestinasjon(56, 53);
+		brett.setDestinasjon(49, 11);
+		brett.setDestinasjon(47, 26);
+		brett.setDestinasjon(16, 6);
+	}
+
+	public Integer getSpillID() {
+		return spillID;
+	}
+
+	public void setSpillID(Integer spillID) {
+		this.spillID = spillID;
+	}
+
+	public String getNavn() {
+		return navn;
+	}
+
+	public void setNavn(String navn) {
+		this.navn = navn;
+	}
+
+	public Terning getTerning() {
+		return terning;
+	}
+
+	public void setTerning(Terning terning) {
+		this.terning = terning;
+	}
+
+	public List<Spiller> getSpillere() {
+		return spillere;
+	}
+
+	public void setSpillere(List<Spiller> spillere) {
+		this.spillere = spillere;
+	}
+
+	public Brett getBrett() {
+		return brett;
+	}
+
+	public void setBrett(Brett brett) {
+		this.brett = brett;
+	}
+
+	public List<Brikke> getBrikker() {
+		return brikker;
+	}
+
+	public void setBrikker(List<Brikke> brikker) {
+		this.brikker = brikker;
+	}
+
+	@Override
+	public String toString() {
+		return "Spill [spillID=" + spillID + ", navn=" + navn + ", terning=" + terning + ", spillere=" + spillere
+				+ ", brett=" + brett + ", brikker=" + brikker + "]";
+	}
+
+}

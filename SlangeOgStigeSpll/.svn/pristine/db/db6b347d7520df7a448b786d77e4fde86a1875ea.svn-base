@@ -1,0 +1,63 @@
+package no.hib.dat101;
+
+import javax.persistence.*;
+
+@Entity
+@Table(schema="slangeogstige")
+public class Brikke {
+	@Id
+	private Integer brikkeID;
+	
+	@OneToOne
+    @JoinColumn(name="plass", referencedColumnName="ruteID")
+	private Rute plass;
+	
+	@OneToOne
+    @JoinColumn(name="spill", referencedColumnName="spillID")
+	private Spill spill;
+
+	public Brikke(Integer brikkeID, Rute plass, Spill spillID) {
+		super();
+		this.brikkeID = brikkeID;
+		this.plass = plass;
+		this.spill = spillID;
+	}
+
+	public Brikke() {
+
+	}
+
+	public void flytt(Rute rute) {
+		plass = rute;
+	}
+
+	public Integer getBrikkeID() {
+		return brikkeID;
+	}
+
+	public void setBrikkeID(Integer brikkeID) {
+		this.brikkeID = brikkeID;
+	}
+
+	public Rute getPlass() {
+		return plass;
+	}
+
+	public void setPlass(Rute plass) {
+		this.plass = plass;
+	}
+
+	public Spill getSpillID() {
+		return spill;
+	}
+
+	public void setSpillID(Spill spillID) {
+		this.spill = spillID;
+	}
+
+	@Override
+	public String toString() {
+		return "Brikke [BrikkeID=" + brikkeID + ", plass=" + plass + "]";
+	}
+
+}

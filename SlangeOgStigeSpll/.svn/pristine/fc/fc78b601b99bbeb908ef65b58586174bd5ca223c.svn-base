@@ -1,0 +1,10 @@
+package main;
+
+import java.util.*;
+
+
+public class Brett {
+
+    private List<Rute> brett=new ArrayList<Rute>();;
+
+}

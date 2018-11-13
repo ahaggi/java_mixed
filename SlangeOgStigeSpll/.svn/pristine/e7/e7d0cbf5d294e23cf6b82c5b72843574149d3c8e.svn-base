@@ -1,0 +1,21 @@
+package main;
+
+import java.util.*;
+
+public class Terning {
+
+	private static final Random RAND = new Random();
+    private Integer verdi;
+
+    public final void trill() {
+        verdi = RAND.nextInt(6) + 1;
+    }
+
+	public Integer getVerdi() {
+		return verdi;
+	}
+
+	
+    
+
+}

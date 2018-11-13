@@ -1,0 +1,60 @@
+package main;
+
+public class Rute {
+
+	private Integer ruteId;
+	private Rute destinasjon;
+	private String type;
+	private Brett brettId;
+
+	public Rute() {
+
+	}
+
+	public Rute(Integer ruteId, Brett brettId) {
+		super();
+		this.ruteId = ruteId;
+		this.brettId = brettId;
+		type = "Normal";
+		destinasjon = this;
+	}
+
+	public Integer getRuteId() {
+		return ruteId;
+	}
+
+	public void setRuteId(Integer ruteId) {
+		this.ruteId = ruteId;
+	}
+
+	public Rute getDestinasjon() {
+		return destinasjon;
+	}
+
+	public void setDestinasjon(Rute destinasjon) {
+		this.destinasjon = destinasjon;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public Brett getBrettId() {
+		return brettId;
+	}
+
+	public void setBrettId(Brett brettId) {
+		this.brettId = brettId;
+	}
+
+	@Override
+	public String toString() {
+		return "Rute [ruteId=" + ruteId + ", destinasjon=" + destinasjon + ", type=" + type + ", brettId=" + brettId
+				+ "]";
+	}
+
+}

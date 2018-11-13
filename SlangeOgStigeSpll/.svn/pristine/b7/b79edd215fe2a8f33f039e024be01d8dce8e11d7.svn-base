@@ -1,0 +1,76 @@
+package no.hib.dat101.utsyn;
+
+import java.util.List;
+import java.util.Scanner;
+
+import no.hib.dat101.Bil;
+import no.hib.dat101.Brett;
+import no.hib.dat101.Brikke;
+import no.hib.dat101.Kategori;
+import no.hib.dat101.Spill;
+import no.hib.dat101.Utleiekontor;
+import no.hib.dat101.utsyn.Database;
+
+/**
+ * @author Peter Boer, Daniel Moberg og Abdella Haji 
+ *
+ */
+
+public class Tekstgrensesnitt {
+	
+	Database db = new Database();
+	
+	Scanner tastatur = new Scanner(System.in);
+	
+	/******************************Spill-Meny metoder*******************************************/
+	
+
+	/**
+	 * Starte et nytt spill.
+	 */
+	public void nySpill() {
+		Integer antallspillere;
+		
+		do {
+		System.out.println("Antall spillere (2-4):");
+		antallspillere = tastatur.nextInt();
+		tastatur.nextLine();
+		}while (antallspillere < 2 || antallspillere > 4);
+		
+		Spill spill = new Spill(antallspillere);
+		startSpill();
+		db.persist(spill);
+	}
+
+	/**
+	 * Start ett ny spill med ett eksisterende brett.
+	 */
+	public void hentBrett() {
+		Integer antallspillere;
+		
+		do {
+		System.out.println("Antall spillere (2-4):");
+		antallspillere = tastatur.nextInt();
+		tastatur.nextLine();
+		}while (antallspillere < 2 || antallspillere > 4);
+		
+		
+		Spill spill = db.hentFraDb();
+		Brett brett = spill.getBrett();
+		List<Brikke> brikke = spill.getBrikker();
+		
+		Spill nyttSpill = new Spill(brett, brikke, antallspillere);
+		startSpill();
+		db.persist(nyttSpill);
+		}
+	
+	/**
+	 * Persister Spill og luker kobling til database.
+	 */
+	public void close() {
+		db.persist();
+		db.close();
+	}
+}
+	
+

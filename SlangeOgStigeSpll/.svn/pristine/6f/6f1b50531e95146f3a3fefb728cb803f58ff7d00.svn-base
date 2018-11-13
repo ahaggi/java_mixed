@@ -1,0 +1,75 @@
+package no.hib.dat101;
+
+
+
+public class Spiller {
+
+	private Integer spillerID;
+
+
+	private Brett brett;
+
+
+	private Brikke brikke;
+
+
+	private Spill spill;
+
+	public Spiller() {
+
+	}
+
+	public Spiller(Integer spillerID,  Brikke brikke, Spill spill) {
+		super();
+		this.spillerID = spillerID;
+		this.brett = spill.getBrett();
+		this.brikke = brikke;
+		this.spill=spill;
+	}
+
+	public void flytt(Rute nyRute) {
+
+		brikke.flytt(nyRute);
+
+	}
+
+	public Integer getSpillerID() {
+		return spillerID;
+	}
+
+	public void setSpillerID(Integer spillerID) {
+		this.spillerID = spillerID;
+	}
+
+	public Spill getSpill() {
+		return spill;
+	}
+
+	public void setSpill(Spill spill) {
+		this.spill = spill;
+	}
+
+
+	public Brett getBrett() {
+		return brett;
+	}
+
+	public void setBrett(Brett brett) {
+		this.brett = brett;
+	}
+
+	public Brikke getBrikke() {
+		return brikke;
+	}
+
+	public void setBrikke(Brikke brikke) {
+		this.brikke = brikke;
+	}
+
+	@Override
+	public String toString() {
+		return "Spiller [spillerId=" + spillerID + ", brett=" + brett + ", brikke=" + brikke + "]";
+	}
+
+
+}

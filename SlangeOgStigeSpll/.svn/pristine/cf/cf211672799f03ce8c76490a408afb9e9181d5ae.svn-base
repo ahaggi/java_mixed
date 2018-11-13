@@ -1,0 +1,52 @@
+package main;
+
+public class Spiller {
+
+	private Integer spillerId;
+	private Brett brett;
+	private Brikke brikke;
+
+	public Spiller() {
+
+	}
+
+	public Spiller(Integer spillerId, Brett brett, Brikke brikke) {
+		super();
+		this.spillerId = spillerId;
+		this.brett = brett;
+		this.brikke = brikke;
+	}
+
+	public void flytt(int antallSetg) {
+		int nyRuteNDX = brikke.getPlass().getNavn() + antallSetg;
+		Rute nyRute = brett.finnRute(nyRuteNDX);
+		if (nyRute != null) {
+			brikke.flytt(nyRute);
+		}
+	}
+
+	public Integer getSpillerId() {
+		return spillerId;
+	}
+
+	public void setSpillerId(Integer spillerId) {
+		this.spillerId = spillerId;
+	}
+
+	public Brett getBrett() {
+		return brett;
+	}
+
+	public void setBrett(Brett brett) {
+		this.brett = brett;
+	}
+
+	public Brikke getBrikke() {
+		return brikke;
+	}
+
+	public void setBrikke(Brikke brikke) {
+		this.brikke = brikke;
+	}
+
+}
