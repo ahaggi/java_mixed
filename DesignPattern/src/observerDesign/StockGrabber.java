@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class StockGrabber implements Subject{
 	
-	private ArrayList<Observer> observers;
+	private ArrayList<Observer> observers; // liste med StockObserver	
 	private double ibmPrice;
 	private double aaplPrice;
 	private double googPrice;

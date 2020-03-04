@@ -9,7 +9,7 @@ import javax.swing.JOptionPane;
 
 public class Klient {
 
-	private static String MAPPE_STR = "/Users/hib/git/dat100-2014/UnnTakOppgaverA/src/no/hib/dat100/lesinnfil/";
+	private static String MAPPE_STR = "xxxxxxxxxxx";
 
 	static public void main(String[] args) {
 

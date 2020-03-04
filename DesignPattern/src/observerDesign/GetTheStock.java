@@ -1,5 +1,8 @@
 package observerDesign;
 import java.text.DecimalFormat;
+import java.text.NumberFormat;
+import java.text.ParseException;
+import java.util.Locale;
 
 public class GetTheStock implements Runnable{
 	
@@ -46,20 +49,21 @@ public class GetTheStock implements Runnable{
 			
 			double randNum = (Math.random() * (.06)) - .03;
 			
+//			NumberFormat df = NumberFormat.getInstance(Locale.ENGLISH);;
+//			DecimalFormat df = new DecimalFormat("#0.00");
+
 			// Formats decimals to 2 places
 			
-			DecimalFormat df = new DecimalFormat("#.##");
-			
-			// Change the price and then convert it back into a double
-			
-	        price = Double.valueOf(df.format((price + randNum)));
+ 				randNum= Math.round(randNum * 100.0) / 100.0;
+ 
+
+	        price =Math.round((price + randNum) * 100.0) / 100.0;
 			
 			if(stock == "IBM") ((StockGrabber) stockGrabber).setIBMPrice(price);
 			if(stock == "AAPL") ((StockGrabber) stockGrabber).setAAPLPrice(price);
 			if(stock == "GOOG") ((StockGrabber) stockGrabber).setGOOGPrice(price);
 			
-			System.out.println(stock + ": " + df.format((price + randNum)) + 
-					" " + df.format(randNum));
+			System.out.println(stock + ": " + (price ) + " " + (randNum));
 			
 			System.out.println();
 		
